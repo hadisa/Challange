@@ -277,15 +277,15 @@ function findMaxLen(str) {
 }
 
 // Driver code
-let str = "((()()";
+let st = "((()()";
 
 // Function call
-document.write('max lenght', findMaxLen(str) + "<br>");
+document.write('max lenght', findMaxLen(st) + "<br>");
 
-str = "()(()))))";
+st = "()(()))))";
 
 // Function call
-document.write('max lenght', findMaxLen(str) + "<br>");
+document.write('max lenght', findMaxLen(st) + "<br>");
 //====================================================================================
 //Given a string s containing just characters '(', ')', '[', ']', '{', '}' determine if the input
 // string is valis. An input string is valid if:
@@ -322,33 +322,28 @@ document.write('is Valid >>>', res + "<br>")
 // operations to convert given
 // string to another with equal
 // frequencies of characters
+
+
 function minOperations(s) {
     // Frequency of characters
     var freq = new Array(26).fill(0);
     var n = s.length;
 
-    // Loop to find the frequency
-    // of each character
     for (var i = 0; i < n; i++) {
         freq[s[i].charCodeAt(0) -
             "A".charCodeAt(0)]++;
     }
 
-    // Sort in decreasing order
-    // based on frequency
+    // Sort in decreasing order based on frequency
     freq.sort((a, b) => b - a);
 
     // Maximum possible answer
     var answer = n;
 
-    // Loop to find the minimum operations
-    // required such that frequency of
-    // every character is equal
     for (var i = 1; i <= 26; i++) {
         if (n % i === 0) {
             var x = n / i;
             var y = 0;
-
             for (var j = 0; j < i; j++) {
                 y += Math.min(freq[j], x);
             }
@@ -361,6 +356,9 @@ function minOperations(s) {
 // Driver Code
 var s = "BBCDF";
 document.write(minOperations(s));
+
+
+
 
 //===================================================================================================
 
@@ -429,61 +427,37 @@ count_minimum(str2);
 // proportion of zeros
 
 
-'use strict';
-
-process.stdin.resume();
-process.stdin.setEncoding('utf-8');
-
-let inputString = '';
-let currentLine = 0;
-
-process.stdin.on('data', function(inputStdin) {
-    inputString += inputStdin;
-});
-
-process.stdin.on('end', function() {
-    inputString = inputString.split('\n');
-
-    main();
-});
-
-function readLine() {
-    return inputString[currentLine++];
-}
-
 /*
  * Complete the 'plusMinus' function below.
  *
  * The function accepts INTEGER_ARRAY arr as parameter.
  */
 
-function plusMinus(arr) {
-    var n=arr.length
-    var pos=0;
-    var neg=0;
-    var zero=0;
-arr.map((num, i) =>{
-   if(num>0){
-       pos++;
-   } else if(num<0){
-       neg++;
-   }else if(num===0){
-       zero++;
-   }
-}   
-)
-console.log(Number.parseFloat(pos/n).toFixed(6))
-console.log(Number.parseFloat(neg/n).toFixed(6))
-console.log(Number.parseFloat(zero/n).toFixed(6) )
+
+function plusMinus(arr1) {
+    var n = arr1.length
+    var pos = 0;
+    var neg = 0;
+    var zero = 0;
+    arr1.map((num, i) => {
+        if (num > 0) {
+            pos++;
+        } else if (num < 0) {
+            neg++;
+        } else if (num === 0) {
+            zero++;
+        }
+    }
+    )
+    console.log(Number.parseFloat(pos / n).toFixed(6))
+    console.log(Number.parseFloat(neg / n).toFixed(6))
+    console.log(Number.parseFloat(zero / n).toFixed(6))
 }
+const arr1 = [3, -1, 0, -4, 1]
+plusMinus(arr1);
 
-function main() {
-    const n = parseInt(readLine().trim(), 10);
 
-    const arr = readLine().replace(/\s+$/g, '').split(' ').map(arrTemp => parseInt(arrTemp, 10));
 
-    plusMinus(arr);
-}
 //----------------------------------------------------------------------------------
 
 // Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers. Then print the respective minimum and maximum values as a single line of two space-separated long integers.
@@ -491,25 +465,25 @@ function main() {
 // Example arr=[1,3,5,7,9]
 
 // The minimum sum is 16 and the maximum sum is 24 . The function prints
-arr=[1,3,5,7,9]
-function miniMaxSum(arr) {
-    arr = arr.sort();
-    var min=0;
-    var max=0;
-    // Write your code here
-    arr.map((num, i)=>{
-        if(i<4){
-            min+=num;  
-        }
-        if(i>0){
-            max+=num
-        }
-        
-    })
-console.log(min, '', max);
-}
 
-miniMaxSum(arr);
+// array = [1, 3, 5, 7, 9]
+// function miniMaxSum(arr) {
+//     arr = arr.sort();
+//     var min = 0;
+//     var max = 0;
+//     // Write your code here
+//     arr.map((num, i) => {
+//         if (i < 4) {
+//             min += num;
+//         }
+//         if (i > 0) {
+//             max += num
+//         }
+//     })
+//     console.log(min, '', max);
+// }
+
+// miniMaxSum(array);
 
 //====================================================================================================================
 
@@ -518,21 +492,238 @@ miniMaxSum(arr);
 // Note: - 12:00:00AM on a 12-hour clock is 00:00:00 on a 24-hour clock.
 // - 12:00:00PM on a 12-hour clock is 12:00:00 on a 24-hour clock.
 
-function timeConversion(s) {
-    console.log(s)
- var d = s.split(':')
- var hours=d[0];
- var minutes=d[1];
- var ss=d[2].slice(0, 2);
- var ampm=d[2].slice(2,5);
-    
-if(ampm == "PM" && hours<12) hours = Number(hours)+12;
-if(ampm == "AM" && hours==12) hours = Number(hours)-12;
-var sHours = hours.toString();
-var sMinutes = minutes.toString();
-if(hours<10) sHours = "0" + sHours;
-if(minutes<10) sMinutes = "0" + sMinutes;
-console.log(sHours + ":" + sMinutes)
 
-return sHours + ":" + minutes + ":" + ss;
+
+function timeConversion(s) {
+    var d = s.split(':')
+    var hours = d[0];
+    var minutes = d[1];
+    var ss = d[2].slice(0, 2);
+    var ampm = d[2].slice(2, 5);
+
+    if (ampm == "PM" && hours < 12) hours = Number(hours) + 12;
+
+    if (ampm == "AM" && hours == 12) hours = Number(hours) - 12;
+    var sHours = hours.toString();
+    var sMinutes = minutes.toString();
+    if (Number(hours) == 0) sHours = '00'
+    if (minutes < 10) sMinutes = "0" + sMinutes;
+
+    return sHours + ":" + minutes + ":" + ss;
 }
+console.log(timeConversion('12:00:00AM'));
+
+
+// =====================================================================
+
+// Maria plays college basketball and wants to go pro. Each season she maintains a record of her play. She tabulates the number of times she breaks her season record for most points and least points in a game. Points scored in the first game establish her record for the season, and she begins counting from there.
+
+// Example score=[12, 24, 10, 24]
+
+// Scores are in the same order as the games played. She tabulates her results as follows:
+
+//                                      Count
+//     Game  Score  Minimum  Maximum   Min Max
+//      0      12     12       12       0   0
+//      1      24     12       24       0   1
+//      2      10     10       24       1   1
+//      3      24     10       24       1   1
+
+
+
+
+
+
+// ==================================================================
+// Camel Case is a naming style common in many programming languages. In Java, method and variable names typically start with a lowercase letter, with all subsequent words starting with a capital letter (example: startThread). Names of classes follow the same pattern, except that they start with a capital letter (example: BlueCar).
+
+// Your task is to write a program that creates or splits Camel Case variable, method, and class names.
+
+// Input Format
+
+// Each line of the input file will begin with an operation (S or C) followed by a semi-colon followed by M, C, or V followed by a semi-colon followed by the words you'll need to operate on.
+// The operation will either be 
+
+// S (split) or C (combine):=> split operation, the words will be a camel case method 
+// ===> Input :S;M;plasticCup() OutPut=> plastic cup
+
+// M indicates method, C indicates class, and V indicates variable :=> 
+// class or variable name that you need to split into a space-delimited list of words starting with a lowercase letter.
+// Example:
+// Input :C;V;mobile phone
+// Output: mobilePhone
+
+//  class or variable name that you need to split into a space-delimited list of words starting with a lowercase letter.
+// In the case of a combine operation, the words will be a space-delimited list of words starting with 
+// lowercase letters that you need to combine into the appropriate camel case String. 
+// Methods should end with an empty set of parentheses to differentiate them from variable names.
+// Output Format
+
+// For each input line, your program should print either the space-delimited list of words (in the case of a split operation) or the appropriate camel case string (in the case of a combine operation).
+// Sample Input
+
+// S;M;plasticCup()
+
+// C;V;mobile phone
+
+// C;C;coffee machine
+
+// S;C;LargeSoftwareBook
+
+// C;M;white sheet of paper
+
+// S;V;pictureFrame
+// // ======================================================================
+// Sample Output
+
+// plastic cup
+
+// mobilePhone
+
+// CoffeeMachine
+
+// large software book
+
+// whiteSheetOfPaper()
+
+// picture frame
+
+
+function processData(input) {
+    //Enter your code here
+    var arrInput = input.split("\n")
+    // console.log('This is a test', arrInput)
+    for (var i = 0; i < arrInput.length; i++) {
+        var sentenses = arrInput[i].split(';')
+        var fLetter = sentenses[0];
+        var sLetter = sentenses[1];
+        var result;
+        var str2 = sentenses[2]
+
+        var newStr = '';
+        //split
+        if (fLetter == 'S') {
+
+            var array1 = str2.split(/(?=[A-Z])/);
+            console.log('sperate', array1)
+
+            if (sLetter == 'V') {
+                array1[0].toLowerCase()
+                console.log('sperate V', array1)
+
+            } else if (sLetter == 'M') {
+                console.log('sperate M', array1[0].charAt(0).toUpperCase() + array1.slice(1))
+
+
+            } else if (sLetter == 'C') {
+                console.log('sperate C', array1)
+
+            }
+
+        }
+        //combine
+        if (fLetter == 'C') {
+
+            var array1 = str2.split(' ');
+            if (sLetter == 'V') {
+                for (var x = 0; x < array1.length; x++) {
+                    newStr += array1[x].charAt(0).toUpperCase() + array1[x].slice(1);
+                }
+                console.log('combine V', newStr.charAt(0).toLowerCase())
+
+            } else if (sLetter == 'M') {
+                for (var x = 0; x < array1.length; x++) {
+                    newStr += array1[x].charAt(0).toUpperCase() + array1[x].slice(1);
+                }
+                console.log('combine M', newStr.charAt(0).toLowerCase())
+
+
+            } else if (sLetter == 'C') {
+                for (var x = 0; x < array1.length; x++) {
+                    newStr += array1[x].charAt(0).toUpperCase() + array1[x].slice(1);
+                }
+                console.log('combine C', newStr)
+
+                // const upper = sentenses[2].charAt(0).toUpperCase() + sentenses[2].substring(1);
+                // console.log('This is C in the V', sentenses[2]);
+            }
+
+        }
+    }
+
+}
+var str1 = 'S;V;iPad\n' + 'C;M;mouse pad\n' + 'C;C;code swarm\n' + 'S;C;OrangeHighlighter\n';
+
+var sty = 'S;M;plasticCup\n' + 'C;V;mobile phone\n' + 'C;C;coffee machine\n' + 'S;C;LargeSoftwareBook\n' + 'C;M;white sheet of paper\n';
+console.log(processData(sty));
+
+//-----------------------------------------------------------------------------------
+
+// Given an array of integers and a positive integer k, determine the number of (i, j) pairs where i<j  and arr[i] + arr[j] is divisible by k.
+
+
+// Function Description
+
+// Complete the divisibleSumPairs function in the editor below.
+
+// divisibleSumPairs has the following parameter(s):
+
+// int n: the length of array 
+// int ar[n]: an array of integers
+// int k: the integer divisor
+// Returns
+// - int: the number of pairs
+
+
+
+
+function divisibleSumPairs(n, k, ar) {
+
+    var count = 0;
+    for (var i = 0; i < n; i++) {
+        for (var j = i; j < n; j++) {
+            if (((ar[i] + ar[j]) % k) == 0 && i !== j) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+//----------------------------------------------------
+// There is a collection of input strings and a collection of query strings. For each query string, determine how many times it occurs in the list of input strings. Return an array of the results.
+// Function Description
+
+// Complete the function matchingStrings in the editor below. The function must return an array of integers representing the frequency of occurrence of each query string in strings.
+
+// matchingStrings has the following parameters:
+
+// string strings[n] - an array of strings to search
+// string queries[q] - an array of query strings
+// Returns
+
+// int[q]: an array of results for each query
+
+function matchingStrings(strings, queries) {
+
+    var arrRes = [];
+    var myStr= [];
+
+    for (var i = 0; i < queries.length; i++) {
+        arrRes.push[n];
+        myStr.push[3];
+        console.log('myStr push time', myStr)
+        var n = 0;
+        for (var j = i; j < strings.length; j++) {
+            if (queries[i].indexOf(strings[j]) >= 0) {
+                console.log(queries[i], strings[j])
+                n++;
+            }
+        }
+       
+       
+    }
+    console.log('Result is', arrRes)
+    return arrRes;
+}
+
+console.log(matchingStrings(['ab', 'ab', 'abc'], ['ab', 'abc', 'bc']))
