@@ -353,6 +353,8 @@ function minOperations(s) {
     return answer;
 }
 
+
+
 // Driver Code
 var s = "BBCDF";
 document.write(minOperations(s));
