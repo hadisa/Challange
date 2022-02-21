@@ -33,3 +33,26 @@ function matchingStrings(strings, queries) {
 }
 
 console.log(matchingStrings(['4', 'aba', 'baba', 'aba', 'xzxb'], ['ab', '3', 'aba', 'xzxb']))
+//=================================================================================
+
+// Given an array of integers, where all elements but one occur twice, find the unique element.
+//a =[1,2,3,4,3,2,1]
+// Example
+
+// The unique element is .
+
+// Function Description
+
+// Complete the lonelyinteger function in the editor below.
+
+// lonelyinteger has the following parameter(s):
+
+// int a[n]: an array of integers
+// Returns
+
+// int: the element that occurs only once
+// Input Format
+
+// The first line contains a single integer, , the number of integers in the array.
+// The second line contains  space-separated integers that describe the values in .
+
