@@ -56,3 +56,17 @@ console.log(matchingStrings(['4', 'aba', 'baba', 'aba', 'xzxb'], ['ab', '3', 'ab
 // The first line contains a single integer, , the number of integers in the array.
 // The second line contains  space-separated integers that describe the values in .
 
+
+arrcomplex = [1, 2, 3, 4, 3, 2, 1];
+arrunique = 0;
+loop1:
+for (var i = 0; i < arrcomplex.length; i++) {
+    var isunique = false
+    loop2:
+    for (var j = 0; j < arrcomplex.length; j++) {
+        if (arrcomplex[i] === arrcomplex[j])
+            break loop2;
+        else isunique = true;
+    }
+    if (isunique) arrunique = arrcomplex[i];
+}
