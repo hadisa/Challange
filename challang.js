@@ -64,10 +64,30 @@ function lonelyinteger(a) {
         res = res ^ a[i];
 
     return res;
-
 }
 
+//Des:
+const a = 4;        // 00000000000000000000000000000101
+const b = 4;        // 00000000000000000000000000000011
 
+console.log(a ^ b); // 00000000000000000000000000000110
+// expected output: 0
+but 
+{
+    const a = 4;        // 00000000000000000000000000000101
+    const b = 18;        // 00000000000000000000000000000011
+    
+    console.log(a ^ b); // 00000000000000000000000000000110
+    // expected output: 22
+}
+//and
+{
+const a = 4;        // 00000000000000000000000000000101
+const b = 14;        // 00000000000000000000000000000011
+
+console.log(a ^ b); // 00000000000000000000000000000110
+// expected output: 10
+}
 
 //--------------------------------------------------------------------------------
 // Submissions	Leaderboard	Discussions	Editorial
@@ -95,3 +115,24 @@ function lonelyinteger(a) {
 
 // int grades[n]: the grades before rounding
 
+
+//===========================================================================================
+
+/**
+ * 
+ * You will be given a list of 32 bit unsigned integers. Flip all the bits ( and ) and print the result as an unsigned integer.
+
+   For example, your decimal input . We're working with 32 bits, so:
+   Function Description:
+   The flippingBits() function should return an unsigned decimal integer.
+   Input parameter:
+   n: an integer
+   Constraints:
+   0 ≤ n < 2²³
+//-------
+// lowBin = 00000010010001111000000000000000
+// flip bits and reverse string
+// highBin = 11111111111111100001110110111111
+ * 
+ * 
+ */
