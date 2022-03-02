@@ -313,20 +313,21 @@ The left-to-right diagonal = 1+5+9=15. The right to left diagonal = 3+5+9=17. Th
  */
 
 function diagonalDifference(arr) {
-  console.log('this is i puth there ', arr)
+
   var rightToLeft = 0;
   var leftToRight = 0;
   for (var i = 0; i < arr.length; i++) {
     outerloop:
     for (var j = 0; j < arr[i].length; j++) {
       rightToLeft += arr[i][j + i];
-      leftToRight += arr[i][(arr[i].length) - i];
-      console.log('right to left ', arr[i][j + i])
-      console.log('Left To Right ', arr[i][(arr[i].length - 1) - i])
+      leftToRight += arr[i][(arr[i].length - 1) - i];
+
       break outerloop;
     }
   }
   console.log('right to left ', rightToLeft)
+  console.log(Math.abs(rightToLeft - leftToRight))
+  return Math.abs(rightToLeft - leftToRight);
 }
 var arr = [[1, 2, 3],
 [4, 5, 6]
