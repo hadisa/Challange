@@ -72,21 +72,21 @@ const b = 4;        // 00000000000000000000000000000011
 
 console.log(a ^ b); // 00000000000000000000000000000110
 // expected output: 0
-but 
+but
 {
     const a = 4;        // 00000000000000000000000000000101
     const b = 18;        // 00000000000000000000000000000011
-    
+
     console.log(a ^ b); // 00000000000000000000000000000110
     // expected output: 22
 }
 //and
 {
-const a = 4;        // 00000000000000000000000000000101
-const b = 14;        // 00000000000000000000000000000011
+    const a = 4;        // 00000000000000000000000000000101
+    const b = 14;        // 00000000000000000000000000000011
 
-console.log(a ^ b); // 00000000000000000000000000000110
-// expected output: 10
+    console.log(a ^ b); // 00000000000000000000000000000110
+    // expected output: 10
 }
 
 //--------------------------------------------------------------------------------
@@ -136,3 +136,35 @@ console.log(a ^ b); // 00000000000000000000000000000110
  * 
  * 
  */
+function flippingBits(n) {
+    // Write your code here
+
+    let lowBin = ''
+    let highBin = ''
+    let result = 0
+    // convert input decimal to binary
+    while (n >= 1) {
+        const rem = n % 2
+        lowBin += rem
+        rem === 1 ?
+            n = Math.floor(n / 2) :
+            n /= 2
+    }
+    // adjust binary to 32 bits
+    while (lowBin.length < 32) {
+        lowBin += 0
+    }
+    // reverse and invert each bit of binary
+    for (let i = lowBin.length - 1; i >= 0; i--) {
+        highBin += lowBin[i] === '0' ? '1' : '0'
+    }
+    // convert binary to decimal output
+    for (let i = 0; i < highBin.length; i++) {
+        const expo = highBin.length - 1 - i
+        result += highBin[i] * (2 ** expo)
+    }
+    return result
+
+}
+console.log(flippingBits(123456))
+//Output is :: 4294843839
