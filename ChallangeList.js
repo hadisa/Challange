@@ -532,9 +532,29 @@ console.log(timeConversion('12:00:00AM'));
 //      3      24     10       24       1   1
 
 
+function breakingRecords(scores) {
+    var result=[0,0];
+    var minScore=scores[0];
+    var maxScore=scores[0];
+    // Write your code here
+    
+    for(var i=0; i< scores.length; i++){
+        
+      if(scores[i] < minScore){
+         minScore=scores[i];
+          result[1]++;
+          console.log('In the min >>', scores[i])
+      }  
+      if(scores[i] > maxScore){
+          maxScore=scores[i];
+          result[0]++;
+           console.log('In the max >>', scores[i])
+      }
+    }
+return result;
+}
 
-
-
+console.log(breakingRecords([10, 5, 20, 20, 4, 5, 2, 25, 1]))
 
 // ==================================================================
 // Camel Case is a naming style common in many programming languages. In Java, method and variable names typically start with a lowercase letter, with all subsequent words starting with a capital letter (example: startThread). Names of classes follow the same pattern, except that they start with a capital letter (example: BlueCar).
